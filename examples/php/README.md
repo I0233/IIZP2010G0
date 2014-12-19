@@ -1,4 +1,4 @@
-# Simple PHP Project
+# Sample PHP Project
 
 Don't use PHP for your project.
 
