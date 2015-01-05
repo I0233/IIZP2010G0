@@ -1,0 +1,24 @@
+Vagrant.configure("2") do |config|
+	# The environment needs a base to be built on. In this case we use Ubuntu
+	# 14.04 32bit distribution as a base image.
+	config.vm.box = "ubuntu/trusty32"
+
+	# The environment setup happens here, we can for example install PHP and
+	# other stuff we need for development here.
+	config.vm.provision :shell, :path => "./bootstrap.sh"
+
+	# In order to test your application we forward the created environment's
+	# port 8000 to the host machine's port 8000.
+	# You can change the ports to whatever you'd like, as long as you are
+	# serving the application in the port specified by 'guest'.
+	config.vm.network :forwarded_port, host: 8080, guest: 8080
+
+	# In order to perform meaningful development work, we mount our workspace
+	# into the virtual machine, so that changes made to the code will be
+	# instantly reflected on our virtual development environment.
+	#
+	# NOTE Replace the 'github.com/N4SJAMK/IIZP2010G0' part with your actual
+	#      project repository if using this file as a baseline. For example:
+	#      'github.com/miema/projekti'.
+	config.vm.synced_folder ".", "/home/vagrant/dev"
+end
