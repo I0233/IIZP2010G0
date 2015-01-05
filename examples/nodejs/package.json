@@ -9,6 +9,7 @@
     "mongoose": "^3.8.21"
   },
   "scripts": {
+    "start": "node main.js",
     "test": "./node_modules/mocha/bin/mocha test.js"
   },
   "author": "",
