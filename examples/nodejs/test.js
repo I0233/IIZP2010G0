@@ -24,8 +24,6 @@ describe('Basic functionality', function() {
 					return done(err);
 				}
 
-				console.log(res.body);
-
 				var users = res.body;
 
 				// You can use 'should' in the following ways:
@@ -37,7 +35,7 @@ describe('Basic functionality', function() {
 				//    should work (no pun intended). This is the more usual
 				//    approach!!
 				//
-				// should(users).be.instanceOf(Array);
+				// users.should.be.instanceOf(Array);
 
 				// We store the 'id' attribute for future tests.
 				testUserID = users[0].id;
